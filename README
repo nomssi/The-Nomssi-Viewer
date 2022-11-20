@@ -1,0 +1,1164 @@
+This tutorial documentation belongs to and explains the use of
+_____________________________________________________________________________
+
+The NOMSSI Viewer Release 1.5                                     May 3, 1995
+
+Copyright 1993-1995 by NOMSSI NZALI Jacques Hubert Christian
+All Rights Reserved
+_____________________________________________________________________________
+
+========
+Summary:
+========
+This is a graphics file viewer, that reads raster images stored within files
+and displays them using the extended modes of VGA graphics adapters.
+The Windows and OS/2 2.x BMP, GIF, IFF/LBM/HAM, PCX, PNG, TIFF, TGA and JFIF
+JPEG graphics formats are supported with most of their particular extensions.
+Available SuperVGA graphics modes up to 32 bits/pixel are detected and used.
+
+Quote from Scott Arpajian, Ziff-Davis Interactive (April 13,1995).
+
+ " Congratulations! It is my pleasure to inform you that your program,
+   NOMSSI Viewer, is a finalist in this year's Ziff-Davis ShareWare Awards.
+   It has been nominated by our judges to compete in the PC Magazine
+   Utilities - DOS category."
+
+========================
+Information in this file
+========================
+   Introduction                o  System requirements
+                               o  Packing list
+                               o  Some features
+                               o  Licensing agreement
+                               o  Disclaimer
+                               o  Acknowledgements
+
+   Getting Started             o  Setting up The NOMSSI Viewer
+                               o  A quick tour
+                               o  Command line parameters
+
+   Reference                   o  Graphics file formats
+                               o  Advanced User Informations
+                               o  Troubleshooting
+                               o  Keyboard commands
+
+   Appendix                    o  NVX
+                               o  Availability
+                               o  Information and support
+                               o  Trademarks
+                               o  Revision Notes
+
+===================
+System Requirements
+===================
+The NOMSSI Viewer Release 1.5 should run under DOS 3.3 or higher (DR DOS,
+MSDOS, NOVELL DOS, OS/2 or Windows DOS session) on any IBM PC compatible
+with 640 Kb memory, 80286 processor and VGA adapter or better. The JPEG
+decoding routines require a 80386SX processor or better.
+The NOMSSI Viewer for DPMI (NVX) requires extended memory.
+
+============
+Packing list
+============
+As for revision 1.5, The NOMSSI Viewer original .ZIP archive file is 454 kB,
+the 15 uncompressed files sum up to 896 kB. The archive file includes:
+
+NV        EXE - The executable
+NV        HLP - Online help texts
+NVGER     HLP - German help texts. Rename to NV.HLP
+NV        EXT - Sample association file
+NV        ICO - Windows icon file
+
+FILE_ID   DIZ - Brief description
+README    NV  - Documentation file (this text file)
+
+RECORD    BAT - Start NV.EXE in record mode
+PLAY      BAT - Start NV.EXE in play-back mode
+LOGOS     SLD - Sample slide show script file
+
+NVIEW     PNG - Image file, 640x480
+
+ORDER     FRM - Register form
+BESTELL   GER - German register form
+
+All the following programs are FreeWare, distributed under the scope of
+the disclaimer of warranty.
+
+VOCPLAY   EXE - Plays VOCs files on SoundBlaster
+
+This program is Copr. 1994,1995 by Mark Stehr, included with kind permission
+of its author.
+
+VIEWER    EXE - Command line viewer for many file formats
+
+=============
+Some features
+=============
+
+1.  The NOMSSI Viewer is a SuperVGA specialist, your machine configuration
+    is autodetected, available resources are used, the VGA chipset families
+
+      Acumos, Ahead, ATI, Avance Logic, Chips&Tech, Cirrus, Compaq,
+      Everex, Genoa, HMC, MXIC, MGA, NCR, Oak, Paradise, Poach, PRIMUS,
+      Realtek, S3, Trident, Tseng, UMC, Video7, Weitek, Yamaha
+
+    and the VESA BIOS extensions are supported (about 180 unique chipsets).
+    The video memory, the available 8, 15, 16, 24 and 32 bits video mode
+    (256 color, 32K or 64K HiColor and 16M TrueColor) are detected and used.
+    The NOMSSI Viewer can use the whole video card memory and control the
+    VGA hardware for *real-time* scrolling of images, even with the mouse.
+    An available 32x32 hardware cursor is used.
+
+2.  The NOMSSI Viewer supports eight graphics file formats with most of their
+    particular extensions, including OS/2 Bitmap arrays, IFF HAM coding and
+    PBM FORMs, PCX CGA/EGA images, PNG alpha chanel, gamma correction and
+    many TIFF extensions (planar, tiled, CMYK, YCbCr images, extra samples).
+
+3.  Graphics are buffered on multiple media at a time, extra memory like
+    UMB, EMS, XMS or disk space is used as image buffer and for overlay
+    management. With this, you can pan over very large images in any video
+    mode and do simple image transformations (flip, mirror, rotate, center,
+    shrink, zoom) and color editing (brightness, contrast, gamma correction,
+    grayscale).
+
+4.  The NOMSSI Viewer is accurate: specify the monitor gamma and select one
+    of six different algorithms to reduce the color depth of a given image
+    (maximum number of unique colors in the image) with minimal degradation
+    of the image quality.
+    Fast-but-inaccurate dithering methods are offered as well as slower
+    and/or resource intensive two-pass quantization methods with excellent
+    visual quality.
+
+5.  The NOMSSI Viewer does slideshows and creates catalogs (image indexes),
+    up to 81 (9x9) images are displayed simultaneously in any supported
+    graphics mode. The file ordering, the video mode, the delay between
+    images, the catalog layout are user-defined.
+    Select a group of files and view them in turn as a slideshow.
+    Pause on any image, edit the image, resume the slideshow, return to
+    previous images, save the pictures as palette color files in the
+    BMP, GIF, TGA or TIFF formats.
+
+6.  The user interface is event-oriented, with mouse support, pull-down
+    menus, context sensitive help (english and german help texts), a
+    unique 'screen saver' (please don't panic, it is neither a virus nor
+    a bug), file manager with sort, copy, rename, delete, find functions,
+    text and binary browser, execute function for .EXE, .COM and .BAT files.
+    All file dialogs (file load, file finder, directory tree) are non-modal,
+    multiple instances can  coexist.  All parameters are customized at run-
+    time in dialog. Changes take effect immediatly, with no need to restart.
+
+7.  The NOMSSI Viewer environment integrates third-party components. The
+    tools editor and the association editor allow to add new functions even
+    at run-time. Mark Stehr's viewer (special edition) with .FLI/.FLC, .ICO
+    and PhotoCD support demonstrates this feature:
+      o Install up to 15 external applications in the User menu, with help
+        text and hotkey, and/or
+      o Associate a class of data-files to any external application.
+        The NOMSSI Viewer seamlessly launches the linked application to
+        handle associated data-files.
+
+8.  The command line is processed at startup with all path names, files,
+    file masks and slideshow script files specified. The NOMSSI Viewer also
+    possesses an event recorder with the ability to save every user action
+    during a session and auto-replay the whole session later.
+
+===================
+Licensing Agreement
+===================
+It is requested that all users comply with the following licensing
+provisions:
+
+The NOMSSI Viewer is distributed as ShareWare, the user fee is DM 36,- or
+US$29 (see ORDER.FRM). Should you find this program useful, register. You
+will get the latest release. You *must* register if you use The NOMSSI Viewer
+on a regular basis.
+
+You may copy and distribute verbatim UNMODIFIED copies of this Software, in
+any medium, as long as it remains in its complete form with all support
+files, documentation files, this license agreement and the disclaimer of
+warranty.
+
+You may charge a distribution fee for the physical act of transferring a
+copy. You may not copy, sublicense, distribute or transfer The NOMSSI Viewer
+except as expressly provided under this License Agreement.
+
+Any attempt otherwise to copy, sublicense, distribute or transfer The
+NOMSSI Viewer is void and your rights to use the program under this License
+agreement shall be automatically terminated. However, parties who have
+received computer software programs from you with this License Agreement
+will not have their licenses terminated so long as such parties remain in
+full compliance.
+
+==========
+Disclaimer
+==========
+Except when otherwise stated in writing, NOMSSI NZALI Jacques Hubert
+Christian, refered hereafter as "The author" and/or other parties provide
+"The NOMSSI Viewer" "as is", without warranty of any kind, either expressed
+or implied, including, but not limited to, the implied warranties of
+merchantability and fitness for a particular purpose. The entire risk as to
+the quality and performance of "The NOMSSI Viewer" is with you.
+
+In no event unless required by applicable law will The author and/or any
+other party who may redistribute "The NOMSSI Viewer" as permited above be
+liable to you for damages, including any lost profits, lost monies, or other
+specials, incidental or consequential damages arising out of the use or the
+inability to use "The NOMSSI Viewer" (including but not limited to loss of
+data or losses sustained by third parties or a failure of the program to
+operate with any picture or any other programs), even if The author and/or
+other party has been advised of the possibility of such damages, or for any
+claim by any other party.
+
+Mere aggregation of another unrelated program with this program on a volume
+of a storage or distribution medium does not bring the other program under
+the scope of these terms.
+
+================
+Acknowledgements
+================
+This program uses
+  o  The VGADOC package version 3,
+     Copyright (c) 1994 by Finn Thígersen
+  o  The JPEG Unit, Copyright (c) 1993 by TBH-Softworx
+  o  The STREAMS package version 1.6,
+     Copyright (c) 1993,94 by D.J. Murdoch.
+  o  The OVRUMB Unit 1.2, by Jean-Marc Lasgouttes
+  o  The HelpFile patch in TVTOYS, by Far Niente Productions
+  o  The ShowApp Unit by K. Strobel & A. Olbrich
+  o  The TeXTools Unit by Jrgen Schlegelmilch
+The NOMSSI Viewer is written using Borland Turbo Pascal 7.0(TM).
+The two pass quantization routine are ported from C:
+  o  The median cut code from the Independant JPEG Group source,
+  o  The octree quantization code from the PoV source,
+  o  The Neuralnet quantization from A. H. Dekker code/paper.
+The VIEWER.EXE utility is Copyright 1994,1995 by Mark Stehr,
+included with kind permission of its author.
+
+============================
+Setting up The NOMSSI Viewer
+============================
+1. Create a target directory for The NOMSSI Viewer on your hard drive.
+   REMOVE THE OLD CONFIGURATION FILE NV.CFG from the target directory
+   prior to any update from a previous release.
+
+2. Set the environment variable TEMP to a list of directories with enough
+   free disk space for temporary files (e.g. insert
+
+   SET TEMP=C:\TEMP;D:\
+
+   in your AUTOEXEC.BAT and reboot to let the changes take effect). The
+   current directory is used if this variable does not exist.
+
+3. PKUNZIP ver 2.04g or higher is needed to unpack the original archive,
+   a .ZIP file. Copy all files to the target directory on your hard drive.
+
+4. Type NV.EXE at DOS prompt to start The NOMSSI Viewer.
+
+5. Select Option\Display or press F9 to open the display dialog. Verify that
+   your machine configuration is correctly reported and that the available
+   video modes with 256, 32K, 64K and 16M colors are enabled.
+
+   o  The item "32-bits" is hidden, with only an open bracket "(" on screen.
+      (rev. 1.3g-1.4d)
+   o  The available native VGA chipset is normally detected, The NOMSSI
+      Viewer works with chipset-dependent code for a variety of cards.
+      If you experience some problems, install a VESA driver and use the
+      /VESA command line parameter, i.e. start The NOMSSI Viewer with
+
+      NV /VESA  (bypass autodection, assumes VESA compliant BIOS)
+
+   o  HiColor and TrueColor are not be used if your DAC is not recognized.
+      Try the /DAC command line parameter
+
+      NV /DAC   (assumes you have a TrueColor DAC)
+
+6. Check the "[X] VESA driver" item to force the use of the VESA interface.
+   Verify that the available VESA modes are recognized.
+
+   You may have to install a driver to use VESA modes. Check The Universal
+   VESA VBE, a stand alone program Copyright 1993 by Kendall Bennett. It is
+   available via ftp from the above-mentioned SimTel mirrors as
+   /SimTel/msdos/graphics/UVESAxx.ZIP
+
+   The file NV.CFG is automatically written or updated with the current
+   settings when you leave the Options\Display dialog.
+
+7. Press Ctrl+F9 to open the Preferences dialog box. Use the TAB and SHIFT+
+   TAB keys to navigate through the various items and select your defaults.
+   Each option is explained with a short hint in the statusline at the bottom
+   of the screen. The F1 key opens a help screen with verbose information
+   about the current field. The menu item Options\Save writes your defaults
+   to the NV.CFG file.
+
+8. Press Alt+X to exit The NOMSSI Viewer. At this point, you can start The
+   NOMSSI Viewer again by keying
+
+   RECORD.BAT test
+
+   You can now load some graphics files, try F1 from graphics mode, test the
+   slideshow, install or edit some tools with Option/Tools, use the online
+   help system. After exiting again, type in
+
+   PLAY.BAT test
+
+   You will realize you have been shadowed to whole time. Also try
+
+   DEMO.BAT
+
+   Press ESC at any time to abort and Alt+X to exit the demo.
+
+9. You might want to use The NOMSSI Viewer as a shell for any command line
+   utility. Create your own association file, using the sample association
+   file NV.EXT as a template.
+   Use Option\Tools to add and edit tools (e.g. UUdecoder).
+
+============
+A quick tour
+============
+The NOMSSI Viewer is menu-driven and intuitive, you may already be using it.
+You communicate with the software using state-of-the-art dialog boxes.
+Dialogs are mostly non-modal, you can open several dialogs and switch between
+them without closing or canceling. Some operations can even be performed
+concurrently in different dialogs, e.g. loading a image while scanning the
+whole drive for graphics files.
+
+Each dialog box is a tool with a given functionality, you decide which one
+to use for a given operation. There are currently three file dialogs, that
+can be used for graphics display. The standard ``Load an image file'' dialog
+is the most powerfull, it combines the ease of use of a file list with the
+power of a command line. It also offers slideshow and catalog options.
+You might also want to use the directory tree (Shift+F3 or Windows\Directory)
+to navigate through a whole drive or the File\Search dialog to recursively
+scan a directory subtree for graphics file.
+
+Press F3 to open a new "Load an image file" dialog box. Locate graphics file
+on disk and press Enter or click the Load-button to load and display the
+selected file. Press SHIFT+Enter to browse a text file or CTRL+Enter to
+display an hex-dump of the file. Executable files with .EXE, .BAT or .COM
+extension are started with optional parameters.
+
+Press the space bar or click the name with the right mouse button to add or
+remove the currently selected (highliten) file to the group of tagged files.
+The tag character "û" appears. The File\Group select-menu allows to select
+files using a file mask.
+
+File operations like copy, erase or slideshow are automatically disabled
+whenever no file or group of files is selected in the current file dialog.
+The slideshow button is disabled at startup and automatically enabled as
+soon as at least two files are selected. Press F8 or click on this button
+to setup the slideshow parameters and start a slideshow of the selected
+group of file.
+
+Control over the running slideshow even with the mouse: the images are
+displayed exactly in the selection order, the current image is selected when
+you cancel the slideshow, reverse the sequence of slides with TAB, click once
+on the right mouse button or press the space bar to freeze the slideshow on
+any image. You can still use the image editing tools. Press Enter or click
+the left mouse button to resume or click the right mouse button again or
+press ESC to cancel. Backspace returns to the previous image. A slideshow
+from a script file with individually timed graphics file is possible.
+
+The NOMSSI Viewer checks the association list (File\Association menu) and
+launches the associated application if the file format is not recognized.
+Otherwise the "Reading" message box pops up, providing image informations
+while the graphics file is decoded to a buffer.
+Thereafter, a graphics mode is initialized and the image is displayed.
+
+While viewing the image, you dispose about a few but powerfull tools to edit
+the brightness and contrast, scale, flip or pan trough the image and save it
+to a new graphics file. Press F1 for a help screen, load and display the
+next file in the file list with Enter, ESC cancel the viewing.
+
+The help system provides online information for almost all topics. Check
+the statusline for a short, context-sensitive hint. Press the F1 key or click
+the Help field in the statusline at any time to open a help screen, with a
+description of the current context. Help screens contain hypertext links to
+other topics.
+
+=======================
+Command line parameters
+=======================
+The NOMSSI Viewer handles command line parameter of five types in any order:
+
+1) Graphics file names
+   All files in the active directory that matches the file mask are loaded
+   and displayed. The following example starts The NOMSSI Viewer and displays
+   the two files in turn
+
+   C:\NV>NV C:\PCXLIST\image1.pcx C:\PCXLIST\image2.pcx
+
+   (assumes The NOMSSI Viewer to be installed in the C:\NV\ directory).
+   All slideshow commands except "reverse slide order" can be used. The
+   current display and slideshow options are read from the configuration file
+   NV.CFG. Note that an image will only stay on screen for 25s(default value)
+   if you don't pause the slideshow with the space bar.
+
+2) Directory names (paths)
+   Relative paths are allowed. You may first specify a path, so the
+   subsequent file names in the list will not need to be complete with path.
+
+   C:\NV>NV C:\IMAGES\TIF\*.* - displays all graphics files in C:\IMAGES\TIF\
+
+   C:\NV>NV .                 - force the current directory to be used at
+                                startup, overwrites the default.
+3) The /Q switch
+   forces The NOMSSI Viewer to exit after the last command line parameter is
+   processed. This command is stated in a slideshow script file as :QUIT.
+
+   C:\NV>NV NVIEW.GIF VGALOGO.RLE /Q  - shows the graphics files and exit.
+
+4) Slideshow script files
+   Script file are specified with the leading '@' character. Check the
+   current list of script file commands in the sample LOGOS.SLD script file.
+   The delay time can be specified individualy for each file in seconds.
+
+   C:\NV>NV *.TGA /Q C:\IMAGES\NVIEW\ N*.TIF @NVLOGOS.SLD
+
+   Actions: display all .TGA files in the current directory, select the
+   directory C:\IMAGES\NVIEW\, display all .TIF files starting with N in
+   this directory, run the slideshow script file NVLOGOS.SLD and exit.
+
+5) The /VESA switch
+   bypasses the VGA chipset autodetection and use the VESA BIOS Extension
+   (VBE) if available. Use this switch if you have weird problems with the
+   standard autodetection (i.e. your machine hang, or the display is
+   corrupted).
+
+=====================
+Graphics file formats
+=====================
+A graphics file format defines a standard that most graphics programs and
+filters can use for storing graphics information. The internal arrangement
+of the data within the graphics file and a specific color representation
+is defined, the image data can be represented correctly in a permanent form.
+Color information can be represented in several color spaces, the
+most popular is the RGB (Reg-Green-Blue) space.
+
+One subdividde raster images in in bi-level, grayscale, palette-color and
+full-color (TrueColor) images to accomodate the different capabilities of
+output devices.
+Application specific image data storage is often optimized for loading speed
+in a special hardware configuration. Images for for use in different
+applications and/or on different computer platforms must follow a standard,
+portable file format specification.
+Image compression reduces the storage requirements of pictorial data and the
+time required for access to and transmission of an image. Lossy compression
+gives up some of the image quality to achieve very high compression ratios.
+
+The NOMSSI Viewer supports the following raster image file formats with most
+of their particular extensions:
+
+1) Windows and OS/2 Device-Independent Bitmaps DIB
+
+Bitmaps are used under Windows 3.x and OS/2 to store bi-level, palette color
+and full color images (1,4,8 and 24 bits/pixel). The NOMSSI Viewer reads both
+uncompressed .BMP and compressed .RLE (4 bits and 8 bits RLE) bitmap files.
+OS/2 2.x bitmaps may include several pictures, which are shown in turn.
+
+The NOMSSI Viewer writes uncompressed, palette color Windows 3.x BMP files
+with 8 bits/pixel.
+
+2) Compuserve Inc. Graphics Interchange Format GIF
+
+GIF files are widely used for image data transmission, because of the
+smaller file size. The format specification limits the number of colors/
+pixel to 256, selectable from a wider palette. The GIF89a specification
+allows GIF files to store text and commands for animations.
+The NOMSSI Viewer ignores some GIF89a extensions like comments and pauses,
+but supports multi-images GIF files.
+
+Compatibility: The NOMSSI Viewer writes GIF89a graphics file with a local
+color map. Older releases (prior 1.2c) are unable to handle these valid
+image files.
+
+3) Portable Network Graphics PNG (pronounce: PiNG)
+
+A patent owner of the LZW compression algorithm used in GIF enforces
+it for all for-profit software written or enhanced after Dec. 1994.
+PNG was created 1995 to offer a legally unencumbered standard graphics
+format to the network community. PNG supports grayscale, palette color
+and TrueColor images, with an optional transparency informations.
+PNG is streamable, PNG has progressive display capability, and the PNG
+adaptative filters lead to better compression of the image data.
+
+The NOMSSI Viewer reads PNG files compliant to the 9th draft.
+PNG files are not created yet.
+
+4) Truevision TGA file format
+
+The TGA file format was the first TrueColor file format widely available.
+The current TGA file specification defines the TGA file types 1,2,3, 9,10
+and 11 (color mapped, TrueColor and grayscale uncompressed and run-length
+encoded files).
+The NOMSSI Viewer reads all these file types, right-to-left data ordering
+is assumed. The ".TGA" suffix should be the only one used.
+
+The NOMSSI Viewer writes color-mapped (type 1) TGA files with 32 bits/color
+map entry and 8 bits/pixel. The pixel data ordering is left-to-right and
+bottom-to-top.
+
+5) Adlus tag-based file format TIFF
+
+TIFF is a file format for storing and interchanging bi-level, grayscale,
+palette-color and full color raster image data in several color spaces.
+TIFF is tag-based and designed to be extensible. It is a rich format,
+that allow to the image itself, i.e. information for document storage and
+retriaval, informations about the capabilities of the imaging devices.
+
+The NOMSSI Viewer supports the current Baseline TIFF 6.0 definition and
+many, many TIFF 6.0 Extensions (CCITT 1D and LZW Compression, tiled, planar,
+YCbCr, CMYK/seperated images, extra samples).
+Not supported are:
+  o  LZW strips/tiles with more than 65527 bytes
+  o  TIFF FAX G4
+  o  TIFF/JPEG compression
+Pixel data ordering other as left-to-right and top-to-bottom are ignored.
+
+The NOMSSI Viewer writes palette-color TIFF files.
+
+6) ZSoft PC Paintbrush Format PCX
+
+The PCX image file format is in widespread use on the PC. The NOMSSI Viewer
+handles PCX-files with 1..8 and 24 bits per pixel. Some 256 color PCX files
+are written without color map table, a grayscale map is assumed.
+Pictures with 2 or 4 colors are displayed using the CGA color map. SHIFT+F9
+switchs to the standard EGA color map, which is sometimes assumed.
+
+7) The Interchange File Format IFF
+
+IFF is a file format for storing and interchanging data (text, images, music
+and more). It is in widespread use on the Amiga. IFF stores data in so-called
+FORMs. The NOMSSI Viewer reads IFF ILBM (Interleaved Bitmap) with 1..8 and
+24 bits/pixel and PBM (Packed Bitmap) forms, which contains image data,
+offering support for run-length and HAM encoding.
+
+8) JPEG File Interchange Format
+
+The Joint Photographic Expert Group (JPEG) has created an international
+standard for saving continuous-tone still images in a compressed format.
+The baseline JPEG process is lossy, it gives up some image quality to
+achieve very high compression ratios, i.e. smaller file size.
+
+The JPEG standard does not specify a graphics file format, it defines the
+JPEG Interchange Format.
+The JPEG File Interchange Format (JFIF) is a minimal file format which
+enables JPEG bitstreams to be exchanged between a wide variety of platforms
+and applications. JFIF is entirely compatible with the standard JPEG
+interchange format, it uses the YCbCr color space.
+
+The JPEG decoding routines require a PC with 80386SX processor or better.
+The maximum image width is 4000 pixel.
+
+==========================
+Advanced User Informations
+==========================
+1. Panning
+
+  The NOMSSI Viewer can use hardware and software panning (Option\Preferences
+  \Hardware scroll). Hardware panning is extremly fast, even on the slowest
+  machines. The image is truncated if it does not fit in the available video
+  memory.
+  Software scrolling does not have this size limitation, image tiles are
+  reloaded from the buffer medium (Memory, EMS, XMS or disk). Note that the
+  scrolling loading from disk is usually slow.
+  Note(1.3i): The scrolling is slower when two pass quantization
+              methods are used (Median-Cut, Octree or Neural-net).
+
+2. Quantization
+
+  The extended SuperVGA modes with 24 bits/pixel (16,777,216 colors) provide
+  the best representation of a color image for human eyes, they are refered
+  to as "TrueColor" modes. These modes consume excessive space (3 bytes of
+  storage per pixel) and require large and expensive video memory. Many
+  SuperVGA can display only in 8 bits/pixels modes, the color values in the
+  video memory are used as indexes in a look-up table (LUT) to select the
+  real RGB data. With that, one have 256 distinct colors for each picture at
+  disposal, which can be selected from a much larger palette. To display an
+  image with more colors than the current display capabilities, one either
+  uses dithering or color quantization or both.
+
+  Dithering is the use of more than one pixel to represent a color value,
+  giving up some spatial resolution. Our visual system performs spatial
+  integration (averages) if we view a small area from a sufficiently large
+  distance. Dithering is fairly fast and produces quite good looking color
+  images in high resolution video modes.
+  A dithered image seems to contains noise in low resolution modes or on
+  enlarged images. It will not compress very well.
+
+  Color quantization reduces the number of unique colors of an image with
+  minimal degradation of the image quality. One must first select the best
+  representative table of colors for the given image. Each pixel is then
+  replaced with the most similar color in the table. The image colors can
+  then be coded with table indexes, lowering the storage requirement.
+
+  The NOMSSI Viewer offers a palette of quantization methods with different
+  quality/speed ratios (Options\Display\Quantization).
+
+  o  Grayscale         The luminance component is used to control the
+                       grayshade (for JPEG images only).
+
+  o  Pattern dithering A 2x2 dither matrix (magic square) is used for Red and
+                       Green, a 4x4 matrix is used for Blue.
+
+  o  Floyd-Steinberg   This error diffusion scheme distribute the dithering
+                       error made on the the current pixel over its neighbors.
+
+  o  Median-Cut        This method builds a 3D-histogram and use it to
+                       subdivise the image color space in subboxes, allowing
+                       to accurately select 256 best representative colors
+                       for a given image.
+                       The NOMSSI Viewer uses Floyd-Steinberg error diffusion
+                       in the second pass, while mapping RGB colors to the
+                       most similar palette colors.
+
+  o  Oct-tree          This method uses oct-trees to recursively divise the
+                       RGB-cube, using normally less memory than a 3D-
+                       histogram.
+                       Dithering is not used, the obtained images will
+                       compress better.
+
+  o  Neural-network    This method compute the optimal palette for a given
+                       image using a Kohonen neural net with a learning
+                       phase. Flyod-Steinberg dithering step is performed in
+                       the second pass if enough memory is available.
+                       The neural net quantization item cannot be selected
+                       with the mouse.
+
+3. Video mode selection algorithm
+
+  With "Options\Display\Mode auto" checked, The NOMSSI Viewer uses the
+  currently selected color depth (Options\Display\Colors) as the maximal
+  value and seeks the video mode with the lowest available color depth, that
+  still provides enough colors for the image.
+  This means a GIF file (256 colors) will not be loaded in a TrueColor mode
+  if a 256 color mode is available, even if the 24 bits/pixel color depth is
+  selected.
+
+4. Gamma correction
+
+  The purpose of gamma correction is the compensation of the artefacts
+  introduced by your output device, that is, your monitor. This lets
+  color images appear identical on different output devices.
+  Gamma correction is usually used to lighten the mid-tones in images from
+  scanners. Press Alt+F9 to switch to the monitor or the user-defined gamma.
+
+  Notes:
+   o  Gamma-correction does not work in HiColor modes.
+   o  The exponential transfer function used is not accurate for
+      color LCD displays.
+   o  All three RGB components use the same correction curve.
+
+5. Graphics mode tools
+
+  While an image is displayed, press F1 for a help screen. The NOMSSI Viewer
+  switchs to a text mode without clearing the video memory, and the available
+  keyboard controls are displayed. These are powerfull one-touch commands,
+  check the summary in "keyboard commands" below.
+
+6. Event Recorder
+
+  The NOMSSI Viewer can save every single action of yours in a file and later
+  *automagically* replay it. Start the DEMO.BAT file as an example for this
+  unique feature.
+  The NOMSSI Viewer uses the environment variables "listen" and "play" to
+  control recording/playback, the RECORD.BAT and PLAY.BAT files are ready-
+  to-use batch files for this purpose.
+
+7. Association Editor
+
+  Define and edit links between data files and the appropriate applications
+  using the Association Editor (File\Associate). Select a valid file name in
+  the file list box (dialog box "Load an image file") or this menu item will
+  be disabled. The sample NV.EXT file shows how to specify associations from
+  a text file.
+
+  Data files are recognized by the file name extension, like .VOC, .WAV or
+  .MOD for sound files. The associated applications are specified using a
+  command line with the complete path and other extra parameters. Do not
+  forget the file name extension (I often do).
+
+     Extension  Command line
+
+     .TXT       COMMAND.COM /C TYPE
+     .MPG       C:\GO32.EXE D:\IMAGES\VIDEO\VMPEG
+     .MOD       D:\MISCELL\MUSIC\PLAY.EXE
+     .FLI       VIEWER.EXE -s4
+     .VOC       VOCPLAY.EXE
+     .ANS       FASTANSI.EXE
+
+  Trying to load an "associated" data file (i.e. a text file or a sound file)
+  will automatically start the linked application. Therefore you can edit a
+  text file or play back a sample from within The NOMSSI Viewer. The user-
+  defined command line is used to start the application seamlessly, handing
+  over the data file as the last command line parameter. DOS Error codes
+  are reported if Option\Preferences\Confirmations is checked.
+
+8. User installed tools
+
+  Add new features yourself, install your own utilities using the "Tools"
+  dialog, from the Options\Tools menu. You can define new tools or edit
+  an existing one. State the DOS command line, assign a hotkey to your tool,
+  enter a one-line description for the statusline, enter a title for the
+  "User" menu. The tilde ~ can be used to highlight a  character, i.e.
+
+  ~V~iewer  is displayed with a lit V.
+
+  User installed tools are integrated in The NOMSSI Viewer environment. They
+  are started from the user menu or with their hotkey. The current file name
+  can be passed as parameter.
+
+9. Slideshow and Catalogs
+
+  The slideshow button in the "Load an image file" dialog is enabled if at
+  least two file from the file list have been selected. Catalogs are often
+  refered to as thumbnails, indexes. We call them "image array". To build
+  an image array, check the "Arrange to an array" box and enter a page
+  layout in the "Layout" input line. Up to 81 (9x9) images can be displayed
+  in a catalog, the layout is not restricted to the square numbers (i.e. 1x5,
+  3x2, 1x1 images can be specified).
+
+  The NOMSSI Viewer normally creates catalogs on-the-fly, the images are
+  converted to a standard palette and displayed reduced on screen.
+  Particulary, 1x1 catalogs may be used to convert a bunch of images to the
+  same, standard palette.
+
+  The catalog is saved to disk if "Save completed array" is checked and at
+  least one buffer medium is enabled. Best quality catalogs are saved from
+  8 bits (256 color) modes. The NOMSSI Viewer first creates a catalog buffer
+  and reads a fullscreen of graphics file to the buffer in the first pass.
+  A dummy frame with the file name is displayed.
+  The image informations are analysed and an optimal palette is computed for
+  this page using one of the quantisation methods. This palette is used in
+  second pass to display all images.
+  This is fairly fast and produces high quality catalogs. A large amount
+  of free machine resources are required, namely the buffer space for all
+  images and memory for the quantization buffers.
+
+  One pass quantization methods are used to save catalogs in HiColor and
+  TrueColor modes. The images look nice onscreen, but fast dithering is
+  used to create a palette color graphics file.
+
+  Catalog are saved in the current directory. If Options/Display/Picture
+  "Aspect ratio" option is checked, the image is scaled proportionally,
+  otherwise it is scaled to fit in the catalog box, regardless of the
+  involved distortion.
+  If the "Scale down" option is disabled, The NOMSSI Viewer scale all images
+  to the catalog box size, regardless of their size. This may be unwanted,
+  particulary for tiny images that are enlarged.
+
+  The NOMSSI Viewer pauses after the last image (or first image, if the file
+  order was reversed) and after each screenfull of images. The "Save
+  completed array" option disables this pause.
+  It stops after
+  completing all open windows.
+
+  The "Cycle Slideshow" option allows to start an endless slideshow, that
+  can even pass midnight. It must be enabled in order to reverse the file
+  order with TAB, but it is ineffective is "All open windows" is checked.
+
+  "All open windows" allows to do slideshow in a file/search or directory
+  tree window. Select at least two files in the current "Load an image file"
+  window, and the slideshow will run with all open windows in turn. You can
+  start a slideshow with *all* image files on your harddisk(s), provided
+  you have enough memory for all open windows.
+
+  The "Superimpose pictures" option is active when two file are loaded in
+  turn by pressing Enter: The screen is not cleared if tagged "Disable Beep"
+  stops the beep temporary, while the slideshow is running.
+
+  The file list is re-read after any file saved.
+
+===============
+Troubleshooting
+===============
+You will not be able to view some images if you are low on memory, or if
+your TEMP disk drive is full. Check your system configuration and the option
+menu, some quantization algorithms require a lot of free memory.
+The NOMSSI Viewer shows an error code (Status) when you press F1 in graphics
+mode. As for release 1.5, Status 4E0B stand for "Memory Overflow", this is
+subject to change without notice.
+
+Other problems:
+
+ o  The information panel shows false color informations for ILBM/HAM and TGA
+    color maped files
+ o  The bar gauge is not updated correctly on PCX files
+ o  Hardware scrolling doesn't work in VGA-mode 320x200 on some chipsets
+ o  ET4000 TrueColor modes selection problems (fixed ?)
+ o  Disabled video modes are not saved to NV.CFG.
+    (work around exist, see manual)
+ o  Hardware scrolling in 24 bit modes may shift the colors
+ o  The graphics isn't always restored correctly after a help screen from
+    graphics mode
+ o  soft scrolling with mouse
+ o  Weitek P9000 chipset detection problems, use /VESA
+ o  Sierra 32K HiColor DAC problems
+ o  Cirrus CL542x VESA BIOS version 1.20 has serious bugs.
+    Use a newer release.
+ o  Floppy disk copy cannot be easily cancelled
+
+Feel free to report any difficulties you experienced with The NOMSSI Viewer
+via email. Please include a valid return path and the program release you
+have been using, actually The NOMSSI Viewer 1.5.
+
+=================
+Keyboard Commands
+=================
+General
+  Alt + Letter     select an active Option. Press left Alt-key
+                   *together* with the lit letter.
+                   (i.e. Alt + S for "SlideShow", Alt + A for
+                   "Scan", Alt + N for "Name").
+  Alt+F3           Close window
+  ESC              Cancel the current operation.
+  Enter            Confirm a valid input/selection
+  TAB              select (highlight) the next field in a
+                   dialogbox.
+
+Help: F1           Open Helpwindow
+  Alt+F1                Previous Help screen
+  F5               Zoom/restore size of the active helpwindow
+  Ctrl+F5          Change the size and/or position of the active
+                   window
+  Enter            Pick a topic
+  ESC              Close Help
+
+File: F3           Open dialogbox "Load an image file"
+  Space bar        select (tag/reverse tag) file. Needed for
+                   Slideshow or for group copy
+  Gray +           tag all files
+  Gray -           clear all tags
+  Gray x or *      reverse all tags
+  F10              go to the menubar
+  F7               copy file(s)
+  Alt+F7           Scan directory trees
+  F8               slide show
+
+Options: F9        Open dialogbox "Options"
+
+Tools
+  F1               Help screen with file and graphic mode
+                   informations and a short description of
+                   the available commands.
+  Ins/Del          Brightness control (+/-)
+  Home/End         Contrast control (+/-)
+  Gray * or x      Cycle palette colors
+  Gray ö or /      Cycle colors backward
+
+  F2               Save as BMP, GIF, TGA or TIF graphics file
+
+  Shift+F9         Set standard EGA Palette
+  Ctrl+F9          Set uniform quantization palette (3-3-2)
+  F9               Convert the palette colors to gray shades
+  Alt+F9           Gamma correction, set the active monitor gamma
+                   (Standard 2,2)
+  F10              Restore original palette
+  Ctrl+PgUp/PgDn   special effect (test)
+  Ctrl+Ins/Del
+  Ctrl+Home/End
+  Alt+Space        full scan of large image
+
+  Ctrl+Enter       software zoom (only by hardware paning on)
+
+  F3               scale down (half)  (EMS/XMS/disk needed)
+  F4               scale to fit page  (EMS/XMS/disk needed)
+  F5               flip the image vertically (up/down)
+  F6               flip left/right (mirror)
+  Shift+F6         rotate counterclockwise 90ø
+  F7               copy current image to buffer
+  F8               restore image from buffer
+
+  PgUp/PgDn        scroll up/down (slow)
+  Arrow keys       scroll up/down/left/right (fast)
+
+  Gray +           Switch to higher graphic resolution (Zoom out)
+  Gray -           Switch to lower graphic resolution  (Zoom in)
+
+Slideshow: F8
+  Space bar        freeze image, stop   (Mouse right button)
+  Enter            continue, next image (Mouse left button)
+  Backspace        continue, previous image
+  TAB              reverse slideshow direction
+  ESC              cancel slide show, end (Mouse right button)
+
+===
+NVX
+===
+NVX is the DOS protected mode port of The NOMSSI Viewer. NVX uses DPMI
+(DOS Protected Mode Interface) to run in protected mode which gives the
+application access to all your computer's memory. With the exceptions
+outlined in NVX!USER.DOC, the DOS protected-mode technology is completely
+transparent and no extra steps are necessary in order to run a protected-
+mode application.
+The performance is improved for large images. The resource file NVX.NVR
+must be in the same directory than the executable, or NVX will abort with
+"Error in Stream". NVX supports swapping to disk with the /F command line
+parameter,
+    NVX /F1000000
+uses 1,000,000 bytes of the start-up directory as swap file ~NVX.$$$. The
+heap viewer in the menubar should report the change.
+
+============
+Availability
+============
+The NOMSSI Viewer is released as a ZIP archive with the name NVIEWnnn.ZIP,
+'nnn' stand for the version number, like NVIEW150.ZIP for release 1.5.
+PKUNZIP ver 2.04g or higher is needed to 'uncompress' the archive. Be aware
+it may be repacked to some other archivers by other sites.
+
+The most recent version of The NOMSSI Viewer may be obtained via World Wide
+Web at the following location:
+
+http://www.tu-chemnitz.de/~nomssi
+
+or at SPECIAL-Box, Chemnitz/Germany, Sysop Jens Hofbauer
+
++49-371-2176173   19200bps and 64000bps   (X.75 & V.110)
++49-371-2176174   27700bps
+
+All lines are 24h open.
+
+FidoNet     : 2:249/5080 & 2:249/5081
+GerNet      : 21:494/4080
+GeoholicsNet: 54:493/1560
+
+Major releases are available via ftp from:
+
+  o  SimTel, the Coast to Coast Software Repository. The primary mirror site
+     is OAK.Oakland.Edu  (141.210.10.117),
+
+     file: SimTel/msdos/graphics/nviewnnn.zip.
+
+     The list of systems that offer SimTel files by FTP can be downloaded
+     from OAK.Oakland.edu, file: /SimTel/msdos/filedocs/download.inf
+
+  o  garbo.uwasa.fi
+     file: pc/graphics/nviewnnn.zip
+
+=======================
+Information and support
+=======================
+Feel free to report any comments, problems, suggestions for improvements
+concerning the program, its documentation, its licensing agreement or any
+part of its presentation to
+
+   NOMSSI NZALI Jacques H. C.
+   Thueringer Weg 3/435
+   09126 Chemnitz, Germany
+
+   Internet email:  nomssi@physik.tu-chemnitz.de
+
+==========
+Trademarks
+==========
+The Graphics Interchange Format(c) is the Copyright property of CompuServe
+Incorporated.  GIF(sm) is a Service Mark property of CompuServe Incorporated.
+
+PC, PC/AT are trademarks, IBM, OS/2 are registered trademarks of
+International Business Machines Corporation.
+
+All other products or services mentioned in this manual and in the on-line
+help texts, including:
+
+Acumos, Ahead, ATI, Avance Logic, Chips&Tech, Cirrus, Compaq, Everex, Genoa,
+HMC, MXIC, MGA, NCR, Oak, Paradise, Poach, PRIMUS, Realtek, S3, Trident, UMC,
+Video7, Weitek, Yamaha, VGA, Tseng Labs, MS-DOS, PC-DOS, PCX, Windows,
+Novell, PC Paintbrush, GIF, Compuserve, TIFF
+are trademarks, registered trademarks, service marks, or registered service
+marks of their respective companies or organizations.
+
+We state that we are using the other trademarked names only in an editorial
+fashion, with no intention of infringement of the trademark.
+
+==============
+Revision Notes
+==============
+  3.5.95 1.5  - the 6th public release
+              - fixed TIFF 3,5,7 bits/pixel with differencing predictor
+              - added 15 bit HiColor dithering
+              - Save to the default directory with Shift+F2
+              - Installing a user tool previously disabled the DOS Shell
+              - Backspace goes to previous image, without reordering
+              - fixed mouse range problem
+ 24.4.95 1.4h - misc. changes (PNG, JPEG)
+              - fixed Octree quantisation of 16 bit-data
+              - fixed mirror and flip without buffer
+ 12.4.95 1.4g - added (PNG) Portable Network Graphics support
+                (see also: Graphics file formats)
+                Disable all buffers in Options\Preferences for progressive
+                display.
+  7.4.95 1.4f - Monochrome setting can be disabled
+              - Fixed multi-image GIF.
+              - File search dialog would always pop to the foreground
+                when a new graphics file was found: disturbing and
+                sometimes leading to a deadlock state.
+              - Catalog save w/o frame: glitches fixed
+                  o  Single pixel appearing on the upper left corner
+                  o  On a new page, first thumbnail line was junk
+                  o  Changed frame colors
+              - Save as BMP line size bug fixed
+              - Bug in documentation fixed
+  9.3.95 1.4e - Selection (tag list) is now discarded after file scan
+              - Fixed brightness/contrast controls
+              - LZW problem fixed
+              - Work around: memory fragmentation problem by SlideShow
+              - Customized gamma correction value could be altered after
+                saving options
+              - Fixed: save catalog with non-square image count
+ 16.2.95 1.4d - Beta test release
+                /VESA option bypass VGA chipset detection
+                More user tool options
+                Execute with change directory
+  8.2.95 1.4c - Beta test release
+                Save User tools, minor changes
+  6.2.95 1.4b - Ctrl+Enter = Software Zoom in graphics mode
+                ! Hardware Panning must be on
+              - User menu, Add your own utilities
+                Use ~x~ to highlight. Select a key (Shift+F1..Shift+F4)
+		(Window\Directory is now Ctrl+F3)
+              - Some internal changes
+ 16.1.95 1.4a - YCbCr TIFF fix
+              - Slideshow reset tags fix
+ 11.1.95 1.40 - 5th public release
+              - Prices revised
+              - External utilities added
+              - Fixed new preferences/slideshow dialogs, DOS shell,
+              - Documentation, help files, bar gauge step
+                Layout of File\Search, Options\Preferences, Collection range
+                error, Slideshow\Options changed with new functions
+31.12.94 1.3j - New: faster (idle) soft scrolling, Gamma correction
+                in TrueColor modes, more Association options, enhanced
+                command line handling (files, file masks, paths, script
+                file handling) Layout of File\Search, Options\Preferences,
+                Slideshow\Options changed with new functions
+                Select files from all directory on drive for
+                Slideshow/Catalog.
+                Incremental search is now possible from all file lists.
+              - bugs fixed: TIFF ExtraSamples/palette, TGA 16-bits file
+                rename, directories, LBM scan line size JFIF resolution,
+                Catalog save problems
+              - many internal changes (executable is smaller and uses less
+                memory).
+ 5.12.94 1.3i - bugs fixed
+                Added extension and slideshow demo file.
+ 2.12.94 1.3h - graphics card support enhanced, directory tree
+                revised, save in current directory.
+ 9.11.94 1.3g - 32 bits mode support tested
+         1.3f - bug fixed:
+                Slideshow dialog mxn could be deleted with DEL
+              - command line parameters, to fix some problems with
+                  HiColor/TrueColor modes:
+                  /DAC - assume HiColor/TrueColor DAC
+                  /ATI - assume ATI.
+                Should fix some Graphics Ultra Pro problems. not tested
+              - bug fixed: VESA modes were not used if the corresponding
+                           native color depth was disabled.
+              - TIFF CMYK support
+              - better IFF HAM test
+              - TIFF multi images catalog fixed
+         1.3e - 32 bit modes (couldn't test it yet)
+              - vgatest utility
+              - Software scrolling is now used,
+              - Hardware Cursor support on some chipsets
+              - Save catalogs with higher quality, using median-cut
+                quantisation.
+              - New directory dialog! (Shift+F3) with a directory tree to
+                navigate trough the drive, some network drives support.
+17.10.94 1.3d - File search dialog revisited, sort by extensions, ET4000
+                TrueColor mode swap, bug fixed, first NVX beta
+              - Brand new NVX ! the DPMI viewer (no public release)
+              - Command line option handling: load all files on the command
+                line, and quit if command /Q specified
+              - Modified the resource file for Tseng 4000 HiColor mode
+              - fixed problem with saving catalog in HiColor and TrueColor
+                modes. The complete fix will be to save as TrueColor files,
+                but...
+              - Catalog without frames can be selected from the preference
+                dialog
+              - revised dialog search for images file. You can now load a
+                file while scanning the whole drive for image
+ 7.10.94 1.3c - fixed Auto Change Drive problem, fixed problems with
+                slideshow, IFF, flip/mirror problem, overlay management
+                improved
+ 22.8.94 4th public release 1.3
+           TIFF YCbCr and information panel revisited
+  8.8.94 revision 1.2h  - The NOMSSI Viewer is one year old !
+           new setup dialog, mouse panning,
+           changed mouse settings, mosaic
+           fixed HAM decoding, associations
+ 18.7.94 beta 1.2g, should have the functionallity of 1.2f,
+           rewritten from older backups after source for rev. 1.2f
+           lost in a harddisk crash,
+           (TrueColor support and file associations).
+           Neural-net quantization rewritten.
+ 13.6.94 revision 1.2f - beta release - posted to a.b.p.u
+           true color support, file associations
+  2.5.94 revision 1.2e - internal beta
+ 25.3.94 revision 1.2d
+           EMS problem fixed, comand line parameter,
+           event recorder, Use of resource-file, RLE4 bug fixed,
+           enter do slideshow, Helpscreen from graphics mode
+ 11.3.94 revision 1.2c
+           Save as GIF, GIF bug fixed (older release cannot read
+           the saved files). Added release test in NV.CFG, one do not
+           need to erase it anymore
+revision 1.2b - JFIF problem
+  3.3.94   Slideshow new look, Dithering problem fixed, Added file
+           delete
+ 24.2.94 release 1.2a
+           Problem with slideshow when no graphic modes available,
+           Auto save now won't be cyclic nor work w/o cataloguing
+           Added F1 Help in graphics mode (still needs some work)
+           Heap display formated, corrected help file erratum,
+           TGA file, Software version
+ 22.2.94 Third public release 1.2
+           fixed: DEL-Key problem in 1.1l, aspect scale in Slideshow
+                  Directories count (Search for files), Validation
+                  errors, Prefix error, ESC cancel w/o buffering,
+                  JFIF GetInfos error, View as Hex width
+           updated: help, documetation, license agreement
+ 16.2.94 release 1.1l - beta
+           fixed severe JFIF problem in 1.1k, Save as TGA,
+           Slideshow with all open windows
+ 14.2.94 release 1.1k - beta
+           bugs fixed, i.e. Fit to screen, minor changes in user
+           interface (options), Directory as parameter to NV.EXE
+           allowed, Delete a supported graphics resolution with DEL
+  ?.2.94 1.1j
+  7.2.94 release 1.1i - beta
+           some 1.1h bugs fixed: VESA support, Flyod-Steinberg.
+           Setup dialogbox revised, controlbox while loading,
+           Save as BMP
+  1.2.94 release 1.1h - beta
+           SuperVGA support extended, better LZW error check,
+           JPEG display options, Color cycling, some bug fixes,
+           internal changes (overlay)
+  18.1.94 release 1.1g - beta - submitted to the c.b.i.p newsgroup
+           revisited: GIF error checking, PCX 4 colors, TIFF YCbCr,
+           TrueColor dithering, c&t450, non-modal setup dialog
+  ?6.1.94 release 1.1f - beta Catalog size can be entered
+   3.1.94 release 1.1e - beta
+           better scaling (Catalog, Fit page, standard VGA).
+           JFIF load process can be easily canceled.
+ 23.12.93 release 1.1d - beta some JFIF bugs fixed
+
+ 15.12.93 release 1.1c, small changes made
+         (large files, slideshow w/o buffer)
+ 13.12.93 The second public release 1.1
+          Extended file format support:
+            o  OS/2 Bitmaps (1.3, 2.x Bitmap Arrays)
+            o  IFF/LBM with HAM and IFF/PBM
+            o  TGA file type 3,11
+            o  PCX 1..8 Bit/Pixel
+            o  JFIF support
+          Slideshow with image array, antialiasing
+          edit image: scale to fit page, flip, mirror, rotate,
+          uses EMS/XMS/disk, more file management/options,
+          some internal changes, speed up
+
+          bugs fixed: Auto detect, video switch after 50 lines mode,
+                      TV bugs, GIF, TIFF bugs, VESA support
+          new bugs
+ 4.8.93  first public release
+_____________________________________________________________________________
+Copyright 1995 by NOMSSI NZALI Jacques Hubert Christian
